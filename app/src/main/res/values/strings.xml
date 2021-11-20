@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Login - PCVS</string>
+    <string name="username_hint">Enter email</string>
+    <string name="password_hint">Enter password</string>
+    <string name="login_button">login</string>
+    <string name="show_password_checkbox">Show Password</string>
+    <string name="remember_checkbox">remember</string>
+    <string name="sign_up_text_view"><u>Sign Up Here!</u></string>
+</resources>
