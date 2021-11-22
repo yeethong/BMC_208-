@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".indexMenu">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginBottom="50sp"
+        android:src="@drawable/logo" />
+
+    <!-- log in text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-medium"
+        android:text="Welcome to PCVS"
+        android:textSize="30sp" />
+
+    <!-- description -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50sp"
+        android:layout_marginBottom="100dp"
+        android:text="Select an user to log in"
+        android:textSize="20dp" />
+
+    <!-- patient button -->
+    <Button
+        android:id="@+id/patient_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:width="100dp"
+        android:text="Patient" />
+
+    <!-- admin button -->
+    <Button
+        android:id="@+id/admin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:width="100dp"
+        android:text="Admin" />
+
+</LinearLayout>

@@ -10,16 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BMC208_Assignment">
         <activity
+            android:name=".Dashboard"
+            android:exported="true" />
+        <activity
+            android:name=".AdminLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PatientLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminSignupActivity"
+            android:exported="true" />
+        <activity
             android:name=".MenuActivity"
             android:exported="true"
-            android:label="User Profile"/>
+            android:label="User Profile" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".PatientSignupActivity"
             android:exported="true"
-            android:label="Sign Up"/>
-        <!-- to make log in page as main page -->
+            android:label="Sign Up" /> <!-- to make log in page as main page -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".indexMenu"
             android:exported="true"
             android:label="Log In">
             <intent-filter>

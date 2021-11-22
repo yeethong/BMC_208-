@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SignupActivity">
+    tools:context=".AdminSignupActivity">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -19,12 +19,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-medium"
-        android:text="Sign Up"
+        android:text="Sign Up As Admin"
         android:textSize="30sp" />
 
     <!-- Username -->
     <EditText
-        android:id="@+id/edit_text_signup_patient_username"
+        android:id="@+id/edit_text_signup_admin_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter username" />
@@ -32,7 +32,7 @@
 
     <!-- Password-->
     <EditText
-        android:id="@+id/edit_text_signup_patient_password"
+        android:id="@+id/edit_text_signup_admin_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -40,7 +40,7 @@
 
     <!-- Email -->
     <EditText
-        android:id="@+id/edit_text_signup_patient_email"
+        android:id="@+id/edit_text_signup_admin_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -48,23 +48,23 @@
 
     <!-- Full name -->
     <EditText
-        android:id="@+id/edit_text_signup_patient_fullName"
+        android:id="@+id/edit_text_signup_admin_fullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Enter full name" />
 
-    <!-- Ic passport -->
+    <!-- staff ID -->
     <EditText
-        android:id="@+id/edit_text_signup_patient_ICPassport"
+        android:id="@+id/edit_text_signup_admin_staffID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Enter ICPassport No." />
+        android:hint="Enter Staff ID" />
 
     <!--Sign Up button-->
     <Button
-        android:id="@+id/button_patient_signup"
+        android:id="@+id/button_admin_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
