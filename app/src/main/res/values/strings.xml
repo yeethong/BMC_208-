@@ -6,4 +6,14 @@
     <string name="show_password_checkbox">Show Password</string>
     <string name="remember_checkbox">remember</string>
     <string name="sign_up_text_view"><u>Sign Up Here!</u></string>
+
+
+    <!-- The list of vaccines   -->
+    <string-array name="vaccines">
+        <item>--SELECT A VACCINE--</item>
+        <item>Pfizer</item>
+        <item>Sinovac</item>
+        <item>Astra Zeneca</item>
+    </string-array>
+
 </resources>

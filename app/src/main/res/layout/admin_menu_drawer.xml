@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome patient"
+        android:text="Welcome admin"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="have a nice day"
+        android:text="stay safe!"
         android:textSize="15sp"
         android:textAlignment="center"
         android:textColor="#636363"/>
@@ -35,19 +35,19 @@
         android:layout_marginBottom="16dp"
         android:background="#636363"/>
 
-    <!-- patient home page aka request vaccination -->
+    <!-- Add new batch -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickHome">
+        android:onClick="ClickAddNewBatch">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Request Vaccination Appointment"
+            android:text="Record New Vaccine Batch"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
 
@@ -60,19 +60,19 @@
     </LinearLayout>
 
 
-    <!-- view appointment status -->
+    <!-- View Vaccine Batch Info -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="ClickDashboard">
+        android:onClick="ClickViewVaccineBatch">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="View Appointment Status"
+            android:text="View Vaccine Batch Info"
             android:padding="12dp"
             android:layout_marginStart="16dp"/>
 
@@ -84,7 +84,7 @@
 
     </LinearLayout>
 
-    <!-- log out patient  -->
+    <!-- log out admin  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

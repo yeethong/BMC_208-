@@ -44,34 +44,71 @@ public class AdminSignupActivity extends AppCompatActivity {
     //when the sign up button in admin sign up is click
     public void signUpButtonOnClick(View view) {
 
-        //save patient as global admin
-        Admin admin = new Admin();
-        admin.setAdmin_ID(UUID.randomUUID().toString());
-        admin.setAdmin_username(editTextAdminUsername.getText().toString());
-        admin.setAdmin_password(editTextAdminPassword.getText().toString());
-        admin.setAdmin_email(editTextAdminEmail.getText().toString());
-        admin.setAdmin_fullName(editTextAdminFullName.getText().toString());
-        admin.setAdmin_ID(editTextAdminStaffID.getText().toString());
+        String  adminUsername = editTextAdminUsername.getText().toString();
+        String adminPassword = editTextAdminPassword.getText().toString();
+        String adminFullName = editTextAdminFullName.getText().toString();
+        String adminEmail = editTextAdminEmail.getText().toString();
+        String adminStaffID = editTextAdminStaffID.getText().toString();
+        boolean check = validationinfo(adminUsername,adminPassword,adminFullName,adminEmail,adminStaffID);
 
-        db.collection(COLLECTION_NAME)
-                .document()
-                .set(admin)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        //pass it as global user
-                        AdminLoginActivity.ADMIN = admin;
-                        startActivity(new Intent(AdminSignupActivity.this, MenuActivity.class));
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AdminSignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        if (check==true) {
+            Admin admin = new Admin();
+            admin.setAdmin_ID(UUID.randomUUID().toString());
+            admin.setAdmin_username(editTextAdminUsername.getText().toString());
+            admin.setAdmin_password(editTextAdminPassword.getText().toString());
+            admin.setAdmin_fullName(editTextAdminFullName.getText().toString());
+            admin.setAdmin_email(editTextAdminEmail.getText().toString());
+            admin.setAdmin_staffID(editTextAdminStaffID.getText().toString());
 
-                    }
-                });
+            db.collection(Admin.COLLECTION_NAME)
+                    .document()
+                    .set(admin)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            AdminLoginActivity.ADMIN = admin;
+                            startActivity(new Intent(AdminSignupActivity.this, RecordNewBatch.class));
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(AdminSignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Please fill up all the fields", Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+    private boolean validationinfo(String adminUsername, String adminPassword, String adminFullName, String adminEmail, String adminStaffID) {
+
+        if (adminUsername.length() == 0) {
+            editTextAdminUsername.requestFocus();
+            editTextAdminUsername.setError("Username cannot be blank");
+            return false;
+        } else if (adminPassword.length() <= 7) {
+            editTextAdminPassword.requestFocus();
+            editTextAdminPassword.setError("Password must have at least 7 character long");
+            return false;
+        } else if (adminEmail.length() == 0) {
+            editTextAdminEmail.requestFocus();
+            editTextAdminEmail.setError("Email cannot be blank");
+            return false;
+        } else if (adminFullName.length() == 0) {
+            editTextAdminFullName.requestFocus();
+            editTextAdminFullName.setError("FullName cannot be blank");
+            return false;
+        } else if (adminStaffID.length() == 0) {
+            editTextAdminStaffID.requestFocus();
+            editTextAdminStaffID.setError("Staff ID cannot be blank");
+            return false;
+        } else {
+            return true;
+        }
 
     }
 }

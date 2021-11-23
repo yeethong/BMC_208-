@@ -104,7 +104,6 @@ public class PatientLoginActivity extends AppCompatActivity {
                                     PATIENT = patient;
                                     //if correct patient username and password then go to patient menu page
                                     startActivity(new Intent(PatientLoginActivity.this, MenuActivity.class));
-                                    finish();
                                     break;
                                 }
                                 //if it is empty then show error message to them

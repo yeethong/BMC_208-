@@ -15,17 +15,15 @@ public class MenuActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-
     }
 
+    //when the 3 stripe menu is clicked open the menu
     public void ClickMenu(View view){
         //open drawer
        openDrawer(drawerLayout);
@@ -37,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
+    //when the logo is clicked close the menu
     public void ClickLogo(View view){
         //close drawer
         closeDrawer(drawerLayout);
@@ -53,24 +52,25 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
+    //when click on the home page (request vaccination appointment page)
     public void ClickHome(View view){
         //Recreate activity
         recreate();
 
     }
 
+    //when click on the dashboard (appointment status page)
     public void ClickDashboard(View view){
         //Redirect activity to dashboard
         redirectActivity(this,Dashboard.class);
 
     }
 
+    //when click on the log out
     public void ClickLogout(View view){
         //close app
         redirectActivity(this,indexMenu.class);
     }
-
-
 
     public static void redirectActivity(Activity activity, Class aClass){
         //initialize intent

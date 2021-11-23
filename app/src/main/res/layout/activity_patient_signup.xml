@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".PatientSignupActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginBottom="50sp"
+        android:src="@drawable/logo" />
+
+    <!--Sign Up text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-medium"
+        android:text="Sign Up"
+        android:textSize="30sp" />
+
+    <!-- Username -->
+    <EditText
+        android:id="@+id/edit_text_signup_patient_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter username" />
+
+
+    <!-- Password-->
+    <EditText
+        android:id="@+id/edit_text_signup_patient_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter password" />
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/edit_text_signup_patient_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter email" />
+
+    <!-- Full name -->
+    <EditText
+        android:id="@+id/edit_text_signup_patient_fullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter full name" />
+
+    <!-- Ic passport -->
+    <EditText
+        android:id="@+id/edit_text_signup_patient_ICPassport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter ICPassport No." />
+
+    <!--Sign Up button-->
+    <Button
+        android:id="@+id/button_patient_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="signUpButtonOnClick"
+        android:text="Sign Up" />
+
+</LinearLayout>

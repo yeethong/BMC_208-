@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BMC208_Assignment">
         <activity
+            android:name=".batch_details"
+            android:exported="true" />
+        <activity
+            android:name=".PatientSignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewVaccineBatch"
+            android:exported="true" />
+        <activity
+            android:name=".RecordNewBatch"
+            android:exported="true" />
+        <activity
             android:name=".Dashboard"
             android:exported="true" />
         <activity
@@ -24,11 +36,7 @@
         <activity
             android:name=".MenuActivity"
             android:exported="true"
-            android:label="User Profile" />
-        <activity
-            android:name=".PatientSignupActivity"
-            android:exported="true"
-            android:label="Sign Up" /> <!-- to make log in page as main page -->
+            android:label="User Profile" /> <!-- to make log in page as main page -->
         <activity
             android:name=".indexMenu"
             android:exported="true"

@@ -103,8 +103,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                                     Admin admin = documentSnapshot.toObject(Admin.class);
                                     ADMIN = admin;
                                     //if correct admin username and password then go to admin menu page
-                                    startActivity(new Intent(AdminLoginActivity.this, MenuActivity.class));
-                                    finish();
+                                    startActivity(new Intent(AdminLoginActivity.this, RecordNewBatch.class));
                                     break;
                                 }
                                 //if it is empty then show error message to them

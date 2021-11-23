@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".MenuActivity">
+    tools:context=".RecordNewBatch">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,13 +16,15 @@
         <include
             layout="@layout/menu_toolbar"/>
 
-        <TextView
+
+        <Spinner
+            android:id="@+id/spinner1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Vaccination Status"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+
+
+
+            />
 
         <!--  design hereeee -->
 
@@ -36,7 +38,7 @@
         android:background="@android:color/white">
 
         <include
-            layout="@layout/menu_nav_drawer"/>
+            layout="@layout/admin_menu_drawer"/>
 
     </RelativeLayout>
 

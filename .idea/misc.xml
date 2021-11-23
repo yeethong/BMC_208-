@@ -8,19 +8,26 @@
         <entry key="app/src/main/res/drawable-v24/cursor_color.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.30277777777777776" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.30277777777777776" />
+        <entry key="app/src/main/res/layout/activity_add_new_batch.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_admin_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_admin_signup.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_batch_details.xml" value="0.20969202898550723" />
+        <entry key="app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_index_menu.xml" value="0.1644021739130435" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_patient_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_patient_signup.xml" value="0.18206521739130435" />
+        <entry key="app/src/main/res/layout/activity_record_new_batch.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_sign_up_menu.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1686746987951807" />
+        <entry key="app/src/main/res/layout/activity_vaccine_details.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_view_vaccine_batch.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/admin_menu_drawer.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/menu_nav_drawer.xml" value="0.25" />
         <entry key="app/src/main/res/layout/menu_toolbar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/vaccine_item.xml" value="0.20969202898550723" />
       </map>
     </option>
   </component>

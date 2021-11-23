@@ -6,7 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 
-public class Dashboard extends AppCompatActivity {
+public class ViewVaccineBatch extends AppCompatActivity {
 
     //initialize variable
     DrawerLayout drawerLayout;
@@ -14,10 +14,11 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_view_vaccine_batch);
 
         //assign variable
         drawerLayout = findViewById(R.id.drawer_layout);
+
     }
 
     public void ClickMenu(View view){
@@ -30,12 +31,12 @@ public class Dashboard extends AppCompatActivity {
         MenuActivity.closeDrawer(drawerLayout);
     }
 
-    public void ClickHome(View view){
-        //redirect activity to home aka request vaccination appointment page
-        MenuActivity.redirectActivity(this,MenuActivity.class);
+    public void ClickAddNewBatch(View view){
+        //redirect activity to add new batch
+        MenuActivity.redirectActivity(this,RecordNewBatch.class);
     }
 
-    public void ClickDashboard(View view) {
+    public void ClickViewVaccineBatch(View view) {
         //recreate activity
         recreate();
     }
