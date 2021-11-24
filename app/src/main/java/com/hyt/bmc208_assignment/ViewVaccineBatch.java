@@ -23,17 +23,17 @@ public class ViewVaccineBatch extends AppCompatActivity {
 
     public void ClickMenu(View view){
         //open drawer
-        MenuActivity.openDrawer(drawerLayout);
+        RequestVaccination.openDrawer(drawerLayout);
     }
 
     public void ClickLogo(View view){
         //close drawer
-        MenuActivity.closeDrawer(drawerLayout);
+        RequestVaccination.closeDrawer(drawerLayout);
     }
 
     public void ClickAddNewBatch(View view){
         //redirect activity to add new batch
-        MenuActivity.redirectActivity(this,RecordNewBatch.class);
+        RequestVaccination.redirectActivity(this,RecordNewBatch.class);
     }
 
     public void ClickViewVaccineBatch(View view) {
@@ -43,12 +43,12 @@ public class ViewVaccineBatch extends AppCompatActivity {
 
     public void ClickLogout(View view){
         //close app
-        MenuActivity.redirectActivity(this,indexMenu.class);
+        RequestVaccination.redirectActivity(this,indexMenu.class);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MenuActivity.closeDrawer(drawerLayout);
+        RequestVaccination.closeDrawer(drawerLayout);
     }
 }

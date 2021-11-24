@@ -1,7 +1,5 @@
 package com.hyt.bmc208_assignment;
 
-import static com.hyt.bmc208_assignment.Patient.COLLECTION_NAME;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -67,7 +65,7 @@ public class PatientSignupActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             PatientLoginActivity.PATIENT = patient;
-                            startActivity(new Intent(PatientSignupActivity.this, MenuActivity.class));
+                            startActivity(new Intent(PatientSignupActivity.this, RequestVaccination.class));
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

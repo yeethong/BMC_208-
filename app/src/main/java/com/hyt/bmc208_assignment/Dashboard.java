@@ -22,17 +22,17 @@ public class Dashboard extends AppCompatActivity {
 
     public void ClickMenu(View view){
         //open drawer
-        MenuActivity.openDrawer(drawerLayout);
+        RequestVaccination.openDrawer(drawerLayout);
     }
 
     public void ClickLogo(View view){
         //close drawer
-        MenuActivity.closeDrawer(drawerLayout);
+        RequestVaccination.closeDrawer(drawerLayout);
     }
 
     public void ClickHome(View view){
         //redirect activity to home aka request vaccination appointment page
-        MenuActivity.redirectActivity(this,MenuActivity.class);
+        RequestVaccination.redirectActivity(this, RequestVaccination.class);
     }
 
     public void ClickDashboard(View view) {
@@ -42,12 +42,12 @@ public class Dashboard extends AppCompatActivity {
 
     public void ClickLogout(View view){
         //close app
-        MenuActivity.redirectActivity(this,indexMenu.class);
+        RequestVaccination.redirectActivity(this,indexMenu.class);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MenuActivity.closeDrawer(drawerLayout);
+        RequestVaccination.closeDrawer(drawerLayout);
     }
 }

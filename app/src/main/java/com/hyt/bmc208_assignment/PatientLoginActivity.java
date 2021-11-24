@@ -103,7 +103,7 @@ public class PatientLoginActivity extends AppCompatActivity {
                                     Patient patient = documentSnapshot.toObject(Patient.class);
                                     PATIENT = patient;
                                     //if correct patient username and password then go to patient menu page
-                                    startActivity(new Intent(PatientLoginActivity.this, MenuActivity.class));
+                                    startActivity(new Intent(PatientLoginActivity.this, RequestVaccination.class));
                                     break;
                                 }
                                 //if it is empty then show error message to them

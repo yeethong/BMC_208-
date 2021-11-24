@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="6dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_view_request_batch_batchNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#222222"
+            android:textSize="18sp"
+            tools:text="Batch No of the batch" />
+
+        <TextView
+            android:id="@+id/text_view_request_batch_expiryDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_request_batch_batchNo"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            tools:text="Expiry date of the batch" />
+
+        <TextView
+            android:id="@+id/text_view_request_batch_quantityAvailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_request_batch_expiryDate"
+            android:layout_marginTop="4dp"
+            android:paddingEnd="8dp"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="textEnd"
+            android:textColor="#444444"
+            android:textSize="14sp"
+            tools:text="This will be the quantity available for the batch" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

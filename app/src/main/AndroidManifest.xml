@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BMC208_Assignment">
         <activity
+            android:name=".ViewBatches"
+            android:exported="true" />
+        <activity
+            android:name=".AvailableBatches"
+            android:exported="true" />
+        <activity
+            android:name=".AstraRequest"
+            android:exported="true" />
+        <activity
+            android:name=".SinovacRequest"
+            android:exported="true" />
+        <activity
+            android:name=".PfizerRequest"
+            android:exported="true" />
+        <activity
             android:name=".batch_details"
             android:exported="true" />
         <activity
@@ -34,7 +49,7 @@
             android:name=".AdminSignupActivity"
             android:exported="true" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".RequestVaccination"
             android:exported="true"
             android:label="User Profile" /> <!-- to make log in page as main page -->
         <activity

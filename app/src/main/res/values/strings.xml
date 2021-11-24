@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login - PCVS</string>
+    <string name="app_name">PCVS</string>
     <string name="username_hint">Enter email</string>
     <string name="password_hint">Enter password</string>
     <string name="login_button">login</string>
@@ -11,9 +11,9 @@
     <!-- The list of vaccines   -->
     <string-array name="vaccines">
         <item>--SELECT A VACCINE--</item>
-        <item>Pfizer</item>
-        <item>Sinovac</item>
-        <item>Astra Zeneca</item>
+        <item>V110</item>
+        <item>V111</item>
+        <item>V112</item>
     </string-array>
 
 </resources>

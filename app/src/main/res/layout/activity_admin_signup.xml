@@ -7,11 +7,11 @@
     android:padding="16dp"
     tools:context=".AdminSignupActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_marginBottom="50sp"
-        android:src="@drawable/logo" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginBottom="50sp"
+            android:src="@drawable/logo" />
 
     <!--Sign Up text-->
     <TextView
@@ -70,5 +70,6 @@
         android:layout_marginTop="16dp"
         android:onClick="signUpButtonOnClick"
         android:text="Sign Up" />
+
 
 </LinearLayout>
