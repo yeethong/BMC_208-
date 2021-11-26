@@ -1,5 +1,6 @@
 package com.hyt.bmc208_assignment;
 
+//patient java class (no xml)
 public class Patient {
 
     static String COLLECTION_NAME = "Patients";

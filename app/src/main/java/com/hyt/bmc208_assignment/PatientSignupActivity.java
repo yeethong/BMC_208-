@@ -15,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.UUID;
 
+//sign up page for patient (with data validation)
 public class PatientSignupActivity extends AppCompatActivity {
 
     EditText editTextPatientUsername;
@@ -47,7 +48,7 @@ public class PatientSignupActivity extends AppCompatActivity {
         String patientFullName = editTextPatientFullName.getText().toString();
         String patientEmail = editTextPatientEmail.getText().toString();
         String patientICPassport = editTextPatientICPassport.getText().toString();
-        boolean check = validationinfo(patientUsername, patientPassword, patientFullName, patientEmail, patientICPassport);
+        boolean check = validationInfo(patientUsername, patientPassword, patientFullName, patientEmail, patientICPassport);
 
         if (check == true) {
             Patient patient = new Patient();
@@ -65,7 +66,9 @@ public class PatientSignupActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             PatientLoginActivity.PATIENT = patient;
-                            startActivity(new Intent(PatientSignupActivity.this, RequestVaccination.class));
+                            //go back to log in once patient sign up
+                            startActivity(new Intent(PatientSignupActivity.this, PatientLoginActivity.class));
+                            Toast.makeText(getApplicationContext(), "Patient signed up successfully", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -81,7 +84,8 @@ public class PatientSignupActivity extends AppCompatActivity {
 
     }
 
-    private boolean validationinfo(String patientUsername, String patientPassword, String patientFullName, String patientEmail, String patientICPassport) {
+    //patient validation function
+    private boolean validationInfo(String patientUsername, String patientPassword, String patientFullName, String patientEmail, String patientICPassport) {
 
         if (patientUsername.length() == 0) {
             editTextPatientUsername.requestFocus();

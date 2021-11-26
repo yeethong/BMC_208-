@@ -6,7 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.View;
 
-public class Dashboard extends AppCompatActivity {
+public class AppointmentStatus extends AppCompatActivity {
 
     //initialize variable
     DrawerLayout drawerLayout;
@@ -14,7 +14,7 @@ public class Dashboard extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_appointment_status);
 
         //assign variable
         drawerLayout = findViewById(R.id.drawer_layout);

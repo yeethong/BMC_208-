@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddNewCentre">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginBottom="50sp"
+        android:src="@drawable/logo" />
+
+    <!--Add new centre text-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-medium"
+        android:text="Add New Healthcare Centre"
+        android:layout_marginBottom="50dp"
+        android:textSize="30sp" />
+
+
+    <!-- centre name -->
+    <EditText
+        android:id="@+id/edit_text_add_new_centreName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter centre name" />
+
+
+    <!-- address -->
+    <EditText
+        android:id="@+id/edit_text_add_new_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Enter address" />
+
+
+    <!--add button-->
+    <Button
+        android:id="@+id/button_add_new_centre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="addNewCentreButtonOnClick"
+        android:text="Add" />
+
+
+</LinearLayout>

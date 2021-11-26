@@ -2,6 +2,7 @@ package com.hyt.bmc208_assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ public class ViewVaccineBatch extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_vaccine_batch);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_batches);
 
         //assign variable
         drawerLayout = findViewById(R.id.drawer_layout);

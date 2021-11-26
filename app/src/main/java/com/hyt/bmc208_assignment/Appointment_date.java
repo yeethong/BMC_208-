@@ -1,8 +1,10 @@
 package com.hyt.bmc208_assignment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,45 +12,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 
-public class PfizerRequest extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.UUID;
 
-    ListView listView;
-    ArrayList<String> list = new ArrayList<>();
+public class Appointment_date extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pfizer_request);
-
-        listView = findViewById(R.id.list_view_available_centre);
+        setContentView(R.layout.activity_appointment_date);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        //add data into list
-        list.add("columbia medical");
-        list.add("sunway medical");
-        list.add("subang medical");
-        list.add("ponhub medical");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(PfizerRequest.this, android.R.layout.simple_list_item_1,list);
-
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(PfizerRequest.this, "Ok", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(PfizerRequest.this, ViewBatches.class);
-                startActivity(intent);
-            }
-        });
 
     }
+
     //when the 3 stripe menu is clicked open the menu
     public void ClickMenu(View view){
         //open drawer
@@ -80,15 +66,15 @@ public class PfizerRequest extends AppCompatActivity {
 
     //when click on the home page (request vaccination appointment page)
     public void ClickHome(View view){
-        //Redirect activity to home page
-        redirectActivity(this,RequestVaccination.class);
+        //Recreate activity
+        recreate();
 
     }
 
-    //when click on the dashboard (appointment status page)
+    //when click on the appointment status page
     public void ClickDashboard(View view){
         //Redirect activity to dashboard
-        redirectActivity(this,Dashboard.class);
+        redirectActivity(this, AppointmentStatus.class);
 
     }
 

@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+//log in page for admin
 public class AdminLoginActivity extends AppCompatActivity {
 
     public static Admin ADMIN;
@@ -36,8 +37,6 @@ public class AdminLoginActivity extends AppCompatActivity {
     CheckBox checkBoxShowPassword;
     CheckBox checkBoxRemember;
 
-    boolean hasUsername;
-    boolean hasPassword;
     SharedPreferences sharedPreferences;
 
 
@@ -54,41 +53,6 @@ public class AdminLoginActivity extends AppCompatActivity {
         checkBoxShowPassword = findViewById(R.id.checkbox_admin_show_password);
         checkBoxRemember = findViewById(R.id.checkbox_admin_remember);
 
-        editTextAdminUsername.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            //if username is empty then the log in button is blur
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        editTextAdminPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
         buttonAdminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,8 +66,12 @@ public class AdminLoginActivity extends AppCompatActivity {
                                 for (QueryDocumentSnapshot documentSnapshot: task.getResult()){
                                     Admin admin = documentSnapshot.toObject(Admin.class);
                                     ADMIN = admin;
+                                    String centre = documentSnapshot.getString("admin_centre");
+                                    Intent adminCentre = new Intent(AdminLoginActivity.this, RecordNewBatch.class);
+                                    adminCentre.putExtra("centre_name", centre);
+                                    startActivity(adminCentre);
                                     //if correct admin username and password then go to admin menu page
-                                    startActivity(new Intent(AdminLoginActivity.this, RecordNewBatch.class));
+//                                    startActivity(new Intent(AdminLoginActivity.this, RecordNewBatch.class));
                                     break;
                                 }
                                 //if it is empty then show error message to them
@@ -180,7 +148,4 @@ public class AdminLoginActivity extends AppCompatActivity {
         }
     }
 
-    private void updateBtnLogin(){
-        buttonAdminLogin.setEnabled(true);
-    }
 }

@@ -27,7 +27,7 @@
         android:id="@+id/edit_text_login_admin_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="enter email"
+        android:hint="enter username"
         android:inputType="textPersonName" />
 
     <EditText

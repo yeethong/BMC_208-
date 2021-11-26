@@ -31,6 +31,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="sans-serif-medium"
             android:text="*Select a vaccine ID to record new batch"
+            android:layout_marginLeft="10dp"
             android:textSize="15dp" />
 
         <!-- dropdown a list of vaccines -->
@@ -228,6 +229,8 @@
             android:text="Record"/>
 
     </LinearLayout>
+
+
 
 
     <RelativeLayout

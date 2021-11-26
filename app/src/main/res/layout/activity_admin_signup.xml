@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,13 +28,69 @@
         android:text="Sign Up As Admin"
         android:textSize="30sp" />
 
+    <!-- dropdown a list of centre -->
+    <Spinner
+        android:id="@+id/spinner_adminCentre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
+
+
+    <!-- show centre name -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Centre Name:"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/text_view_centre_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+    <!-- show centre address -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Centre Address:"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/text_view_centre_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+
+
+
     <!-- Username -->
     <EditText
         android:id="@+id/edit_text_signup_admin_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter username" />
-
+        android:hint="Enter username"
+        android:layout_marginTop="16dp" />
 
     <!-- Password-->
     <EditText
@@ -71,5 +133,18 @@
         android:onClick="signUpButtonOnClick"
         android:text="Sign Up" />
 
+    <TextView
+        android:id="@+id/text_view_admin_addNewCentre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Add new centre"
+        android:textColor="#0000ff"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>
+
+</ScrollView>

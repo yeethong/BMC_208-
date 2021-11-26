@@ -10,6 +10,15 @@ public class Admin {
     private String admin_email;
     private String admin_fullName;
     private String admin_staffID;
+    private String admin_centre;
+
+    public String getAdmin_centre() {
+        return admin_centre;
+    }
+
+    public void setAdmin_centre(String admin_centre) {
+        this.admin_centre = admin_centre;
+    }
 
     public String getAdmin_ID() {
         return admin_ID;

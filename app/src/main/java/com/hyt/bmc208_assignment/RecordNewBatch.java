@@ -33,6 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
+//admin use case 2 record new vaccine batch
 public class RecordNewBatch extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     DrawerLayout drawerLayout;
@@ -43,13 +44,12 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
     TextView vaccineManufacturer;
     Spinner mySpinner;
 
-    // the batch details table
     LinearLayout newBatchNo;
     LinearLayout newBatchExpiryDate;
     LinearLayout newBatchQuantityAvailable;
     Button recordBatchButton;
 
-    //
+    // allow admin to enter new batch info
     EditText editTextBatchNo;
     Button expiryDateButton;
     DatePickerDialog.OnDateSetListener setListener;
@@ -64,6 +64,9 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_new_batch);
 
+        Bundle extras = getIntent().getExtras();
+        String centre = extras.getString("centre_name");
+
         drawerLayout = findViewById(R.id.drawer_layout);
         mySpinner = findViewById(R.id.spinner_1);
         vaccineID = findViewById(R.id.batch_vaccineID);
@@ -72,16 +75,15 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
         addNewBatchTable = findViewById(R.id.table_layout_vaccine);
         selectVaccineButton = findViewById(R.id.select_vaccine_button);
 
-        //the batch layout
+        //the linearlayout for batch
         newBatchNo = findViewById(R.id.new_batchNo);
         newBatchExpiryDate = findViewById(R.id.new_batch_expiryDate);
         newBatchQuantityAvailable = findViewById(R.id.new_batch_quantityAvailable);
         recordBatchButton = findViewById(R.id.record_button);
 
-        //admin inout for batch
+        //admin input for batch
+        //this display is to show user selected expiry date
         editTextBatchNo = findViewById(R.id.edit_text_new_batchNo);
-        //editTextBatchExpiryDate = findViewById(R.id.edit_text_batch_expiryDate);
-
         expiryDateButton = findViewById(R.id.expirydate_button);
         displayExpiryDate = findViewById(R.id.display_expirydate);
         editTextBatchQuantityAvailable = findViewById(R.id.edit_text_batch_quantityAvailable);
@@ -132,7 +134,7 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
             }
         });
 
-        //to show the text field of adding new batch
+        //to show the text field of adding new batch after selecting the select button
         selectVaccineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,18 +160,16 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
             public void onClick(View view) {
 
                 String batchNo = editTextBatchNo.getText().toString();
-
-
                 String quantityAvailable = editTextBatchQuantityAvailable.getText().toString();
-                //bathes(batchNo,expiryDate,quantityAvailable);
-                boolean check = validationinfo(batchNo,quantityAvailable);
+//                String expiryDate = displayExpiryDate.getText().toString();
+//                PfizerBatch(batchNo,quantityAvailable,centre);
+                boolean check = validationInfo(batchNo,quantityAvailable);
 
-
-                if (vaccineID.getText().toString().equals("V110")){
+                if (vaccineID.getText().toString().equals("V110") && check == true){
                     PfizerBatch pfizerBatch = new PfizerBatch();
                     pfizerBatch.setPfizer_batch_ID(UUID.randomUUID().toString());
                     pfizerBatch.setBatchNo(batchNo);
-                    //pfizerBatch.setCentreName(center);
+                    pfizerBatch.setCentreName(centre);
                     pfizerBatch.setExpiryDate(displayExpiryDate.getText().toString());
                     pfizerBatch.setQuantityAvailable(quantityAvailable);
 
@@ -179,10 +179,16 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
+//                                  RecordNewBatch = pfizerBatch;
                                     Toast.makeText(RecordNewBatch.this, "New Batch for Pfizer Added Successfully", Toast.LENGTH_SHORT).show();
                                     editTextBatchNo.getText().clear();
-//                                    editTextBatchExpiryDate.getText().clear();
                                     editTextBatchQuantityAvailable.getText().clear();
+                                    displayExpiryDate.setText("");
+                                    newBatchNo.setVisibility(View.INVISIBLE);
+                                    newBatchExpiryDate.setVisibility(View.INVISIBLE);
+                                    newBatchQuantityAvailable.setVisibility(View.INVISIBLE);
+                                    recordBatchButton.setVisibility(View.INVISIBLE);
+                                    addNewBatchTable.setVisibility(View.INVISIBLE);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -192,12 +198,12 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
                         }
                     });
                 }
-                else if (vaccineID.getText().toString().equals("V111")){
+                else if (vaccineID.getText().toString().equals("V111") && check == true){
                     SinovacBatch sinovacBatch = new SinovacBatch();
                     sinovacBatch.setSinovac_batch_ID(UUID.randomUUID().toString());
                     sinovacBatch.setBatchNo(batchNo);
-                    //pfizerBatch.setCentreName(center);
-//                    sinovacBatch.setExpiryDate(expiryDate);
+                    sinovacBatch.setCentreName(centre);
+                    sinovacBatch.setExpiryDate(displayExpiryDate.getText().toString());
                     sinovacBatch.setQuantityAvailable(quantityAvailable);
 
                     db.collection(SinovacBatch.COLLECTION_NAME)
@@ -207,6 +213,14 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(RecordNewBatch.this, "New Batch for Sinovac Added Successfully", Toast.LENGTH_SHORT).show();
+                                    editTextBatchNo.getText().clear();
+                                    editTextBatchQuantityAvailable.getText().clear();
+                                    displayExpiryDate.setText("");
+                                    newBatchNo.setVisibility(View.INVISIBLE);
+                                    newBatchExpiryDate.setVisibility(View.INVISIBLE);
+                                    newBatchQuantityAvailable.setVisibility(View.INVISIBLE);
+                                    recordBatchButton.setVisibility(View.INVISIBLE);
+                                    addNewBatchTable.setVisibility(View.INVISIBLE);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -217,12 +231,12 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
                             });
 
                 }
-                else if (vaccineID.getText().toString().equals("V112")){
+                else if (vaccineID.getText().toString().equals("V112") && check == true){
                     AstraBatch astraBatch = new AstraBatch();
                     astraBatch.setAstraZeneca_batch_ID(UUID.randomUUID().toString());
                     astraBatch.setBatchNo(batchNo);
-                    //pfizerBatch.setCentreName(center);
-//                    astraBatch.setExpiryDate(expiryDate);
+                    astraBatch.setCentreName(centre);
+                    astraBatch.setExpiryDate(displayExpiryDate.getText().toString());
                     astraBatch.setQuantityAvailable(quantityAvailable);
 
                     db.collection(AstraBatch.COLLECTION_NAME)
@@ -232,6 +246,15 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
                                 @Override
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(RecordNewBatch.this, "New Batch for AstraZeneca Added Successfully", Toast.LENGTH_SHORT).show();
+                                    editTextBatchNo.getText().clear();
+                                    editTextBatchQuantityAvailable.getText().clear();
+                                    displayExpiryDate.setText("");
+
+                                    newBatchNo.setVisibility(View.INVISIBLE);
+                                    newBatchExpiryDate.setVisibility(View.INVISIBLE);
+                                    newBatchQuantityAvailable.setVisibility(View.INVISIBLE);
+                                    recordBatchButton.setVisibility(View.INVISIBLE);
+                                    addNewBatchTable.setVisibility(View.INVISIBLE);
 
                                 }
                             })
@@ -251,23 +274,22 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
             }
 
             //validate for batch no and quantity available
-            private boolean validationinfo(String batchNo, String quantityAvailable) {
+            private boolean validationInfo(String batchNo, String quantityAvailable) {
 
                 if (batchNo.length() == 0) {
                     editTextBatchNo.requestFocus();
                     editTextBatchNo.setError("Batch No cannot be blank");
                     return false;
-                }  else if (quantityAvailable.length() == 0) {
+                } else if (quantityAvailable.length() == 0) {
                     editTextBatchQuantityAvailable.requestFocus();
                     editTextBatchQuantityAvailable.setError("Quantity cannot be empty");
                     return false;
-                } else {
+                }
+                else {
                     return true;
                 }
-
             }
         });
-
 
     }
 
@@ -281,16 +303,6 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
         displayExpiryDate.setText(currentDateString);
 
     }
-
-
-
-
-
-
-
-
-
-
 
     //when the 3 stripe menu is clicked open the menu
     public void ClickMenu(View view){
@@ -325,10 +337,9 @@ public class RecordNewBatch extends AppCompatActivity implements DatePickerDialo
     public void ClickAddNewBatch(View view){
         //Recreate activity
         recreate();
-
     }
 
-    //when click on the dashboard (appointment status page)
+    //when click on view list of vaccine batch page
     public void ClickViewVaccineBatch(View view){
         //Redirect activity to dashboard
         redirectActivity(this,ViewVaccineBatch.class);

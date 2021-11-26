@@ -5,11 +5,17 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
+//patient use case 3 request vaccination appointment
+//a card view to allow patient to select vaccine type
 public class RequestVaccination extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
@@ -18,31 +24,45 @@ public class RequestVaccination extends AppCompatActivity {
     CardView sinovac;
     CardView astrazeneca;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_vaccination);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
+        Bundle extras = getIntent().getExtras();
+        String patientUsername = extras.getString("patient_username");
 
+        drawerLayout = findViewById(R.id.drawer_layout);
         pfizer = findViewById(R.id.card_view_pfizer);
         sinovac = findViewById(R.id.card_view_sinovac);
         astrazeneca = findViewById(R.id.card_astra);
 
+        //if pfizer is selected
         pfizer.setOnClickListener(v -> {
-            //Explicit Intent
-            Intent startersActivityIntent = new Intent(RequestVaccination.this, PfizerRequest.class);
-            startActivity(startersActivityIntent);
+            String vaccineName = "Pfizer";
+            Intent centre = new Intent(RequestVaccination.this, VaccinationRequest.class);
+            centre.putExtra("vaccineName", vaccineName );
+            centre.putExtra("patient_username", patientUsername);
+            startActivity(centre);
+            Toast.makeText(RequestVaccination.this, "testing", Toast.LENGTH_SHORT).show();
         });
 
+        //if sinovac is selected
         sinovac.setOnClickListener(v -> {
-            Intent mainsActivityIntent = new Intent(RequestVaccination.this, SinovacRequest.class);
-            startActivity(mainsActivityIntent);
+            String vaccineName = "Sinovac";
+            Intent centre = new Intent(RequestVaccination.this, VaccinationRequest.class);
+            centre.putExtra("vaccineName", vaccineName );
+            centre.putExtra("patient_username",patientUsername);
+            startActivity(centre);
         });
 
         astrazeneca.setOnClickListener(v -> {
-            Intent dessertActivityIntent = new Intent(RequestVaccination.this, AstraRequest.class);
-            startActivity(dessertActivityIntent);
+            String vaccineName = "AstraZeneca";
+            Intent centre = new Intent(RequestVaccination.this, VaccinationRequest.class);
+            centre.putExtra("vaccineName", vaccineName );
+            centre.putExtra("patient_username",patientUsername);
+            startActivity(centre);
         });
 
     }
@@ -51,7 +71,6 @@ public class RequestVaccination extends AppCompatActivity {
     public void ClickMenu(View view){
         //open drawer
        openDrawer(drawerLayout);
-
     }
 
     public static void openDrawer(DrawerLayout drawerLayout) {
@@ -63,7 +82,6 @@ public class RequestVaccination extends AppCompatActivity {
     public void ClickLogo(View view){
         //close drawer
         closeDrawer(drawerLayout);
-
     }
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
@@ -80,14 +98,11 @@ public class RequestVaccination extends AppCompatActivity {
     public void ClickHome(View view){
         //Recreate activity
         recreate();
-
     }
 
     //when click on the dashboard (appointment status page)
     public void ClickDashboard(View view){
-        //Redirect activity to dashboard
-        redirectActivity(this,Dashboard.class);
-
+        redirectActivity(this, AppointmentStatus.class);
     }
 
     //when click on the log out

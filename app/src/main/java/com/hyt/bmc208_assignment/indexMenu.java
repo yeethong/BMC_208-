@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//the first page of our app (select 2 user patient or admin)
 public class indexMenu extends AppCompatActivity {
 
     Button patient_button;

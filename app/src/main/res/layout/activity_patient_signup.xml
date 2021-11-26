@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="sans-serif-medium"
-        android:text="Sign Up"
+        android:text="Sign Up as Patient"
         android:textSize="30sp" />
 
     <!-- Username -->

@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BMC208_Assignment">
         <activity
+            android:name=".Appointment_date"
+            android:exported="true" />
+        <activity
+            android:name=".AddNewCentre"
+            android:exported="true" />
+        <activity
             android:name=".ViewBatches"
             android:exported="true" />
         <activity
             android:name=".AvailableBatches"
             android:exported="true" />
         <activity
-            android:name=".AstraRequest"
-            android:exported="true" />
-        <activity
-            android:name=".SinovacRequest"
-            android:exported="true" />
-        <activity
-            android:name=".PfizerRequest"
+            android:name=".VaccinationRequest"
             android:exported="true" />
         <activity
             android:name=".batch_details"
@@ -37,7 +37,7 @@
             android:name=".RecordNewBatch"
             android:exported="true" />
         <activity
-            android:name=".Dashboard"
+            android:name=".AppointmentStatus"
             android:exported="true" />
         <activity
             android:name=".AdminLoginActivity"

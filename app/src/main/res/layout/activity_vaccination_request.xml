@@ -24,7 +24,14 @@ tools:context=".RequestVaccination">
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PfizerRequest">
+        tools:context=".PfizerRequest"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="vaccine name"
+            android:id="@+id/text_view_centre_name"/>
 
         <ListView
             android:id="@+id/list_view_available_centre"

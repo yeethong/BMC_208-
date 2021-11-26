@@ -22,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+//log in page for patient
 public class PatientLoginActivity extends AppCompatActivity {
 
     public static Patient PATIENT;
@@ -36,8 +37,6 @@ public class PatientLoginActivity extends AppCompatActivity {
     CheckBox checkBoxShowPassword;
     CheckBox checkBoxRemember;
 
-    boolean hasUsername;
-    boolean hasPassword;
     SharedPreferences sharedPreferences;
 
 
@@ -54,41 +53,6 @@ public class PatientLoginActivity extends AppCompatActivity {
         checkBoxShowPassword = findViewById(R.id.checkbox_patient_show_password);
         checkBoxRemember = findViewById(R.id.checkbox_patient_remember);
 
-        editTextPatientUsername.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            //if username is empty then the log in button is blur
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
-        editTextPatientPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-
         buttonPatientLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,8 +66,12 @@ public class PatientLoginActivity extends AppCompatActivity {
                                 for (QueryDocumentSnapshot documentSnapshot: task.getResult()){
                                     Patient patient = documentSnapshot.toObject(Patient.class);
                                     PATIENT = patient;
+                                    String patientUsername = documentSnapshot.getString("patient_username");
+                                    Intent vaccine = new Intent(PatientLoginActivity.this, RequestVaccination.class);
+                                    vaccine.putExtra("patient_username", patientUsername);
+                                    startActivity(vaccine);
                                     //if correct patient username and password then go to patient menu page
-                                    startActivity(new Intent(PatientLoginActivity.this, RequestVaccination.class));
+//                                    startActivity(new Intent(PatientLoginActivity.this, RequestVaccination.class));
                                     break;
                                 }
                                 //if it is empty then show error message to them
@@ -180,7 +148,5 @@ public class PatientLoginActivity extends AppCompatActivity {
         }
     }
 
-    private void updateBtnLogin(){
-        buttonPatientLogin.setEnabled(true);
-    }
+
 }
